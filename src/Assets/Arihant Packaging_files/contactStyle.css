@@ -1,0 +1,120 @@
+*
+{
+    padding: 0;
+    margin: 0;
+
+}
+body{
+    background: url(Images/008.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
+
+.menu_bar{
+    background: rgba(106, 106, 106, 1);
+    text-align: center;
+    margin: auto;
+    border-color:rgb(157, 12, 9);
+    border-bottom-style: solid;
+    font-family: 'Raleway', sans-serif;
+}
+
+.menu_bar table{
+    background: rgba(93, 169, 255, 0);
+    text-align: center;
+    margin: auto;
+}
+
+.menu_bar ol{
+    display: inline-flex;
+    list-style: none;
+    width: 70%;
+    padding-top: 5px;
+}
+
+.menu_bar ul{
+    display: inline-flex;
+    list-style: none;
+    color: rgb(209, 210, 212);
+    width: 80%;
+}
+
+.menu_bar ul li{
+    width: 20%;
+    margin: 15px;
+    padding: 15px;
+    font-size: 20px;
+    margin: auto;
+}
+
+.menu_bar ul li a{
+    text-decoration: none;
+    color: rgb(209, 210, 212);
+}
+
+.menu_bar ul li:hover{
+    background-color: rgb(61, 61, 61);
+    border-radius: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: left center;
+    align-items: center;
+    height: 90vh;
+}
+
+.subContainer{
+    margin: 0 10%;
+    width: 30%;
+}
+
+.details{
+    background-color: rgb(61, 61, 61);
+    height: auto;
+    width: 50%;
+    margin: auto;
+}
+
+.details h1{
+    margin: 120px;
+    text-align: center;
+    color: rgb(209, 210, 212);
+}
+
+.deets{
+    text-align: center;
+    color: rgb(209, 210, 212);
+    font-size: 24px;
+    width: 300px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+
+}
+
+.desc{
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(144, 144, 144);
+}
+
+.wa-icon{
+    position: fixed;
+    bottom: 15px;
+    right: 25px;
+}
+.add{
+    text-align: center;
+    width: 29.16%;
+    margin: auto;
+    float: left;
+    padding: 20px 15px;
+    color: rgb(209, 210, 212);
+    font-size: 18px;
+}
+.addresses{
+    width: auto;
+    margin: auto;
+    padding: auto;
+}
