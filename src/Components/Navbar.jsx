@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../Assets/logo.png';
+import logo from '../Assets/logo2.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +23,12 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="from-blue-500 to-purple-600 p-7 shadow-md fixed top-0 w-full z-50" style={{ backgroundColor: "rgb(0, 32, 109)" }}>
+        <nav className="from-blue-500 to-purple-600 p-5 shadow-md fixed top-0 w-full z-50" style={{ backgroundColor: "rgb(0, 32, 109)" }}>
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo or Brand Name */}
                 <div className="text-white font-bold text-xl">
                     <div className='flex gap-4 center justify-center items-center'>
-                        <span><img src={logo} alt="Logo" className="w-[50px] h-auto" /></span>
+                        <span><img src={logo} alt="Logo" className="w-[70px] h-auto" /></span>
                         <span className='text-[15px]' style={{ fontFamily: "ui-monospace" }}> Kamla Corrogated Box Manufacturing Pvt Ltd.</span>
                     </div>
                 </div>

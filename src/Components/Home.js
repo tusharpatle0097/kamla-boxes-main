@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Carousel from './Carousel';
 import Footer from './Footer';
 import { motion } from 'framer-motion';
@@ -103,35 +103,31 @@ const products = [
 
 const Home = () => {
 
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Submitted:', formData);
-    setFormData({ name: '', email: '', message: '' }); // Reset form
-  };
+
+
+
 
 
   const [index, setIndex] = useState(0);
 
-  const visibleProducts = products.slice(index, index + 4);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % products.length);
+    }, 3000); // Change slide every 3 seconds
 
-  const handleNext = () => {
-    if (index + 4 < products.length) {
-      setIndex(index + 1);
-    }
-  };
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [products.length]);
 
-  const handlePrev = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-    }
-  };
+  const visibleProducts = products.slice(index, index + 4).concat(
+    index + 4 > products.length
+      ? products.slice(0, (index + 4) % products.length)
+      : []
+  );
+
+
+
 
   return (
     <div>
@@ -163,10 +159,10 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-            <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800">About Company</h2>
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800">About Company</h2>
 
-          </div>
+              </div>
               <p className="text-lg  max-w-lg lg:mx-0 mx-auto">
                 Company leads the industry with customizable, eco-friendly packaging solutions. Our mission is to create impact-driven packaging that combines innovation, quality, and sustainability.
               </p>
@@ -217,106 +213,48 @@ const Home = () => {
       </section>
 
       <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-24" id="products">
-  <div className="container mx-auto max-w-7xl">
-    {/* Section Header */}
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold text-gray-800">Our Products</h2>
-      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-        Discover our range of eco-friendly and customizable packaging solutions crafted to elevate your brand.
-      </p>
-    </div>
+      <div className="container mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-800">Our Products</h2>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Discover our range of eco-friendly and customizable packaging solutions crafted to elevate your brand.
+          </p>
+        </div>
 
-    {/* Grid View for Mobile */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:hidden">
-      {products.map((product) => (
-        <div
-          key={product.id}
-          className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:-translate-y-2"
-        >
-          {/* Product Image */}
-      <div className="flex justify-center items-center h-48">
+        {/* Slider View */}
+        <div className="relative flex items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+            {visibleProducts.map((product, idx) => (
+              <motion.div
+                key={product.id || idx}
+                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:-translate-y-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {/* Product Image */}
+                <div className="flex justify-center items-center h-48">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
 
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-30 h-40 object-cover"
-          />
-          </div>
-
-          {/* Product Info */}
-          <div className="p-6 text-center">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.title}</h3>
-            <p className="text-gray-600">{product.description}</p>
+                {/* Product Info */}
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    {product.title}
+                  </h3>
+                  <p className="text-gray-600">{product.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-
-    {/* Slider View for Larger Screens */}
-    <div className="hidden sm:block relative flex items-center">
-      {/* Left Arrow Button */}
-      <button
-        onClick={handlePrev}
-        className="absolute -left-10 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition duration-300 disabled:opacity-50 z-10"
-        disabled={index === 0}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 128 128"
-          className="w-6 h-6 fill-current text-white"
-        >
-          <path d="M64 .3C28.7.3 0 28.8 0 64s28.7 63.7 64 63.7 64-28.5 64-63.7S99.3.3 64 .3zm0 121C32.2 121.3 6.4 95.7 6.4 64 6.4 32.3 32.2 6.7 64 6.7s57.6 25.7 57.6 57.3c0 31.7-25.8 57.3-57.6 57.3zm22.4-63.7H57.6l12.3-15.2c0-2.2-1.8-3.9-3.9-3.9h-7.1L32 64l26.8 25.5H66c2.2 0 3.9-1.8 3.9-3.9L57.1 69.9h28.6c2.2 0 3.9-1.8 3.9-3.9v-4c0-2.1-1-4.4-3.2-4.4z" />
-        </svg>
-      </button>
-
-      {/* Product Cards in Slider */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-  {visibleProducts.map((product) => (
-    <motion.div
-      key={product.id}
-      className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:-translate-y-2"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      {/* Centered Product Image */}
-      <div className="flex justify-center items-center h-48">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="max-w-full max-h-full object-contain"
-        />
       </div>
-
-      {/* Product Info */}
-      <div className="p-6 text-center">
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">
-          {product.title}
-        </h3>
-        <p className="text-gray-600">{product.description}</p>
-      </div>
-    </motion.div>
-  ))}
-</div>
-
-
-      {/* Right Arrow Button */}
-      <button
-        onClick={handleNext}
-        className="absolute -right-10 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition duration-300 disabled:opacity-50 z-10"
-        disabled={index + 4 >= products.length}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 128 128"
-          className="w-6 h-6 fill-current text-white"
-        >
-          <path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 121.6C32.2 121.6 6.4 95.8 6.4 64S32.2 6.4 64 6.4s57.6 25.8 57.6 57.6-25.8 57.6-57.6 57.6zM49.2 38.4 73.6 64 49.2 89.6h13.5L86.4 64 62.7 38.4H49.2z" />
-        </svg>
-      </button>
-    </div>
-  </div>
-</section>
+    </section>
 
       <section className="bg-gray-100 py-20 px-6 md:px-12 lg:px-24" id="clients">
         <div className="container mx-auto max-w-7xl">
