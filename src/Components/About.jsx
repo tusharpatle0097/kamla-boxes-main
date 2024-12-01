@@ -49,7 +49,7 @@ const AboutUs = () => {
         <div className="bg-gray-100 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center">
-              <div className="w-[48%]">
+              <div className="lg:w-[48%]">
                 <motion.div
                   className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow"
                   initial={{ opacity: 0, y: 20 }}
