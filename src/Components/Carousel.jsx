@@ -93,7 +93,8 @@ const Carousel = () => {
                 }}
                 className="text-4xl lg:text-[2rem] font-extrabold px-8 py-6 rounded-lg text-center shadow-lg tracking-wide transform transition-transform duration-300 hover:scale-105"
               >
-                "KAMLA CORRUGATED BOX PACKAGING SOLUTION" <br /><span className='lg:text-[1.2rem] text-red-400'>Since 1979</span>
+                "
+                KAMLA CORRUGATED BOX MANUFACTURING PVT LTD." <br /><span className='lg:text-[1.2rem] text-red-400'>Since 1979</span>
               </h1>
 
 

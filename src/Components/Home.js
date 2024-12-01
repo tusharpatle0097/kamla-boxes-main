@@ -31,6 +31,7 @@ import sumul from '../Assets/clients/sumul.png';
 import sury from '../Assets/clients/sury.png';
 import utex_industries_logo from '../Assets/clients/utex_industries_logo.jpg';
 import VADILALIND from '../Assets/clients/VADILALIND.NS.png';
+import box from '../Assets/box.jpg'
 
 const clients = [
   { id: 1, name: 'Client One', logo: amul },
@@ -143,7 +144,7 @@ const Home = () => {
             transition={{ duration: 1 }}
           >
             <img
-              src="https://cdn.pixabay.com/photo/2013/07/12/17/46/box-152428_1280.png"
+              src={box}
               alt="Box Company - Our Vision"
               className="w-50px h-full object-cover transform transition-transform duration-500 hover:scale-105"
             />

@@ -3,16 +3,16 @@ import { motion } from 'framer-motion';
 
 import amul from '../Assets/clients/amul.png';
 import apml from '../Assets/clients/apml.png';
-import aventis from '../Assets/clients/aventis.png';
+// import aventis from '../Assets/clients/aventis.png';
 import balmer from '../Assets/clients/balmer-lawrie-logo.png';
-import bp from '../Assets/clients/bp.png';
+// import bp from '../Assets/clients/bp.png';
 import BRITANNIA from '../Assets/clients/BRITANNIA.NS.png';
 import dinshaws from '../Assets/clients/dinshaws.png';
 import gopal from '../Assets/clients/gopal.png';
 import havmor from '../Assets/clients/havmor.jpeg';
 import heritage from '../Assets/clients/heritage.png';
-import hp from '../Assets/clients/hp.png';
-import ioc from '../Assets/clients/IOC.NS.png';
+// import hp from '../Assets/clients/hp.png';
+// import ioc from '../Assets/clients/IOC.NS.png';
 import mescab from '../Assets/clients/mescab.png';
 import motherdairy from '../Assets/clients/motherdairy.png';
 import nubeno from '../Assets/clients/nubeno.png';
@@ -27,16 +27,16 @@ import VADILALIND from '../Assets/clients/VADILALIND.NS.png';
 const clients = [
   { id: 1, logo: amul },
   { id: 2, logo: apml },
-  { id: 3, logo: aventis },
+  // { id: 3, logo: aventis },
   { id: 4, logo: balmer },
-  { id: 5, logo: bp },
+  // { id: 5, logo: bp },
   { id: 6, logo: BRITANNIA },
   { id: 7, logo: dinshaws },
   { id: 8, logo: gopal },
   { id: 9, logo: havmor },
   { id: 10, logo: heritage },
-  { id: 11, logo: hp },
-  { id: 12, logo: ioc },
+  // { id: 11, logo: hp },
+  // { id: 12, logo: ioc },
   { id: 13, logo: mescab },
   { id: 14, logo: motherdairy },
   { id: 15, logo: nubeno },
@@ -62,7 +62,7 @@ const Clients = () => {
         </div>
 
         {/* Client Images Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-6">
           {clients.map((client) => (
             <motion.div
               key={client.id}
@@ -76,7 +76,7 @@ const Clients = () => {
               <img
                 src={client.logo}
                 alt={`Client ${client.id}`}
-                className="w-35 h-35 object-contain"
+                className="w-30 h-30 object-contain"
               />
             </motion.div>
           ))}

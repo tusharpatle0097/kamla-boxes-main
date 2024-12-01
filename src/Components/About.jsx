@@ -26,7 +26,14 @@ const AboutUs = () => {
     {
       role: "Group HR & Creative Designer",
       name: "Mrs Shalaka Bendkhale Bhandari",
-      description: `She has been associated with Tanita India Pvt. Ltd , Konark Fixtures Ltd., Samsika Marketing Pvt Ltd.`,
+      // description: `She has been associated with Tanita India Pvt. Ltd , Konark Fixtures Ltd., Samsika Marketing Pvt Ltd.`,
+      description: `A certified professional in the field of packaging alongwith Human
+Resource Development. A creative intellect person with experience
+of almost 12 years into resource development and creative
+designing. She has been associated with Tanita India Pvt. Ltd , Konark Fixtures Ltd., Samsika Marketing Pvt Ltd. She is instrumental in developing new techniques
+and various new designs to meet customer requirement and to
+add value to clients packaging processes.`,
+
     },
     {
       role: "Group HR & Admin-Incharge ",
@@ -39,18 +46,18 @@ const AboutUs = () => {
   return (
     <>
       <section className="bg-gray-50 pb-20 mt-[6.3rem]">
-  
+
 
         <div className="text-center py-20">
           <h2 className="text-4xl font-bold text-gray-800">About Us</h2>
-        
+
         </div>
 
 
 
         <div className="bg-gray-100 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {teamMembers.map((member, index) => (
                 <motion.div
@@ -70,9 +77,9 @@ const AboutUs = () => {
           </div>
         </div>
 
-     
+
       </section>
-     
+
     </>
 
   );

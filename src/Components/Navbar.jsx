@@ -29,7 +29,7 @@ const Navbar = () => {
                 <div className="text-white font-bold text-xl">
                     <div className='flex gap-4 center justify-center items-center'>
                         <span><img src={logo} alt="Logo" className="w-[70px] h-auto" /></span>
-                        <span className='text-[15px]' style={{ fontFamily: "ui-monospace" }}> Kamla Corrogated Box Manufacturing Pvt Ltd.</span>
+                        <span className='text-[15px]' style={{ fontFamily: "ui-monospace" }}> Kamla Corrugated Box Manufacturing Pvt Ltd.</span>
                     </div>
                 </div>
 
