@@ -13,6 +13,11 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+    // Close the mobile menu when a link is clicked
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
+
     // Define links as an array of objects
     const links = [
         { name: "Home", path: "/" },
@@ -23,19 +28,19 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="from-blue-500 to-purple-600 p-5 shadow-md fixed top-0 w-full z-50" style={{ backgroundColor: "rgb(0, 32, 109)" }}>
+        <nav className="from-blue-500 to-purple-600 p-5 shadow-md fixed top-0 w-full z-50" style={{ backgroundColor: "white" }}>
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo or Brand Name */}
-                <div className="text-white font-bold text-xl">
+                <div className="text-black font-bold text-xl">
                     <div className='flex gap-4 center justify-center items-center'>
                         <span><img src={logo} alt="Logo" className="w-[70px] h-auto" /></span>
-                        <span className='text-[15px]' style={{ fontFamily: "ui-monospace" }}> Kamla Corrugated Box Manufacturing Pvt Ltd.</span>
+                        <span className='text-[23px]' style={{ fontFamily: "ui-monospace" }}> Kamla Corrugated Box Manufacturing Pvt Ltd.</span>
                     </div>
                 </div>
 
                 {/* Hamburger Icon for Mobile Menu */}
                 <button
-                    className="text-white lg:hidden block"
+                    className="text-black lg:hidden block"
                     onClick={toggleMenu}
                 >
                     <svg
@@ -60,19 +65,17 @@ const Navbar = () => {
                         <li key={link.name} className="cursor-pointer">
                             <Link
                                 to={link.path}
-                                className={`text-[20px] font-semibold transition duration-200 relative group ${
-                                    location.pathname === link.path
+                                className={`text-[20px] font-semibold transition duration-200 relative group ${location.pathname === link.path
                                         ? "text-red-400" // Active link style
-                                        : "text-white hover:text-red-400"
-                                }`}
+                                        : "text-black hover:text-red-400"
+                                    }`}
                             >
                                 {link.name}
                                 <span
-                                    className={`absolute left-0 bottom-0 w-full h-[2px] ${
-                                        location.pathname === link.path
+                                    className={`absolute left-0 bottom-0 w-full h-[2px] ${location.pathname === link.path
                                             ? "bg-red-400 scale-x-100"
                                             : "bg-red-400 scale-x-0 group-hover:scale-x-100"
-                                    } transition-all duration-300`}
+                                        } transition-all duration-300`}
                                 ></span>
                             </Link>
                         </li>
@@ -88,11 +91,11 @@ const Navbar = () => {
                             <li key={`${link.name}-mobile`} className="cursor-pointer">
                                 <Link
                                     to={link.path}
-                                    className={`font-semibold transition duration-200 ${
-                                        location.pathname === link.path
-                                            ? "text-yellow-500" // Active link style
-                                            : "text-red-500 hover:text-gray-300"
-                                    }`}
+                                    onClick={handleLinkClick} // Close menu on click
+                                    className={`font-semibold transition duration-200 ${location.pathname === link.path
+                                            ? "text-red-400" // Active link style
+                                            : "text-black hover:text-red-400"
+                                        }`}
                                 >
                                     {link.name}
                                 </Link>

@@ -31,21 +31,17 @@ import sumul from '../Assets/clients/sumul.png';
 import sury from '../Assets/clients/sury.png';
 import utex_industries_logo from '../Assets/clients/utex_industries_logo.jpg';
 import VADILALIND from '../Assets/clients/VADILALIND.NS.png';
-import box from '../Assets/box.jpg'
+import box from '../Assets/box-im.jpg'
 
 const clients = [
   { id: 1, name: 'Client One', logo: amul },
   { id: 2, name: 'Client Two', logo: apml },
-  { id: 3, name: 'Client Three', logo: aventis },
   { id: 4, name: 'Client Four', logo: balmer },
-  { id: 5, name: 'Client Five', logo: bp },
   { id: 6, name: 'Client Six', logo: BRITANNIA },
   { id: 7, name: 'Client Seven', logo: dinshaws },
   { id: 8, name: 'Client Eight', logo: gopal },
   { id: 8, name: 'Client Eight', logo: havmor },
   { id: 8, name: 'Client Eight', logo: heritage },
-  { id: 8, name: 'Client Eight', logo: hp },
-  { id: 8, name: 'Client Eight', logo: ioc },
   { id: 8, name: 'Client Eight', logo: mescab },
   { id: 8, name: 'Client Eight', logo: motherdairy },
   { id: 8, name: 'Client Eight', logo: nubeno },
@@ -58,6 +54,10 @@ const clients = [
   { id: 8, name: 'Client Eight', logo: VADILALIND },
 ];
 
+const styles = {
+  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px, rgb(255 85 0 / 35%) 0px -2px 6px 0px inset',
+  padding: '16px'
+};
 
 
 const products = [
@@ -133,7 +133,11 @@ const Home = () => {
   return (
     <div>
       <Carousel />
+     
       <section className="relative bg-white py-20 px-6 md:px-12 lg:px-24" id="about">
+      <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800">About Company</h2>
+              </div>
         <div className="container mx-auto max-w-6xl flex flex-col lg:flex-row items-center space-y-12 lg:space-y-0 lg:space-x-12">
 
           {/* Left Side: Image with Motion and Hover Effect */}
@@ -148,6 +152,7 @@ const Home = () => {
               alt="Box Company - Our Vision"
               className="w-50px h-full object-cover transform transition-transform duration-500 hover:scale-105"
             />
+            
           </motion.div>
 
           {/* Right Side: Text Content and Milestones */}
@@ -160,10 +165,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-800">About Company</h2>
-
-              </div>
+             
               <p className="text-lg  max-w-lg lg:mx-0 mx-auto">
                 Company leads the industry with customizable, eco-friendly packaging solutions. Our mission is to create impact-driven packaging that combines innovation, quality, and sustainability.
               </p>
@@ -173,27 +175,7 @@ const Home = () => {
             </motion.div>
 
             {/* Milestones Section with Icons and Descriptions */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-              {[
-                { icon: '🏆', title: '10+ Years in Business', description: 'Experience that guarantees quality.' },
-                { icon: '🌱', title: '100% Sustainable Materials', description: 'Committed to eco-friendly practices.' },
-                { icon: '🚚', title: '1M+ Boxes Delivered', description: 'Trusted by industries worldwide.' },
-                { icon: '🤝', title: '500+ Clients Served', description: 'Building partnerships that last.' },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-col items-center space-y-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="text-4xl">{item.icon}</div>
-                  <h4 className="text-lg font-semibold ">{item.title}</h4>
-                  <p className="text-sm ">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
+          
 
             {/* Call-to-Action (CTA) Button */}
             <motion.div
@@ -211,6 +193,28 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mt-12" >
+              {[
+                { icon: '🏆', title: '10+ Years in Business', description: 'Experience that guarantees quality.' },
+                { icon: '🌱', title: '100% Sustainable Materials', description: 'Committed to eco-friendly practices.' },
+                { icon: '🚚', title: '1M+ Boxes Delivered', description: 'Trusted by industries worldwide.' },
+                { icon: '🤝', title: '500+ Clients Served', description: 'Building partnerships that last.' },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="flex flex-col items-center space-y-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                  style={styles}
+                >
+                  <div className="text-4xl">{item.icon}</div>
+                  <h4 className="text-lg font-semibold ">{item.title}</h4>
+                  <p className="text-sm ">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
       </section>
 
       <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-24" id="products">

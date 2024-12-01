@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
 import baclImage from '../Assets/slides/S1.jpg'
+import { motion } from 'framer-motion';
 
 const ContactUs = () => {
 
@@ -18,6 +19,12 @@ const ContactUs = () => {
       }}
     >
       {/* Contact Info Section */}
+      <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
       <div className="max-w-4xl w-full bg-white bg-opacity-80 shadow-2xl rounded-lg p-8 border border-gray-300 mb-12">
 
         <h2 className="text-4xl font-bold text-center text-teal-700 mb-10">Get in Touch</h2>
@@ -36,7 +43,7 @@ const ContactUs = () => {
             <FiMail className="w-10 h-10 mx-auto text-teal-600 mb-4" />
             <h3 className="text-2xl font-semibold text-gray-700">Email Us</h3>
             <a href="mailto:info@arihantpack.com" className="text-red-600 text-lg mt-2 hover:underline">
-              info@kamla.in
+            info@kamla.co.in
             </a>
           </div>
           <button onClick={Hello} className="text-center border border-gray-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -56,6 +63,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      </motion.div>
     </div>
   );
 };

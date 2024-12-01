@@ -76,7 +76,7 @@ const Clients = () => {
               <img
                 src={client.logo}
                 alt={`Client ${client.id}`}
-                className="w-30 h-30 object-contain"
+                className="w-[150px] h-[150px] object-contain"
               />
             </motion.div>
           ))}
