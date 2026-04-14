@@ -46,6 +46,12 @@ const Carousel = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+// ✅ define first
+const nextSlide = useCallback(() => {
+  setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+}, [slides.length]);
+
+// ✅ then use it
 useEffect(() => {
   const interval = setInterval(() => {
     if (!isPaused) {
@@ -55,11 +61,6 @@ useEffect(() => {
 
   return () => clearInterval(interval);
 }, [isPaused, nextSlide]);
-
-
-const nextSlide = useCallback(() => {
-  setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-}, [slides.length]);
 
 
 
