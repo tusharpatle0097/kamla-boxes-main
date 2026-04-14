@@ -32,6 +32,7 @@ const Footer = () => {
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
+                            title="Company Location Map"
                         />
                     </div>
                 </div>

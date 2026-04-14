@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import MadhurSir from '../Assets/MadhurSir.jpeg';
 import Footer from "./Footer";
 import { motion } from 'framer-motion';

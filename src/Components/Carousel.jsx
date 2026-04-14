@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback  } from 'react';
 import S1 from '.././Assets/CompanyImages/S1.jpeg'
 import S2 from '.././Assets/CompanyImages/S2.jpeg'
 import S3 from '.././Assets/CompanyImages/S4.jpeg'
@@ -46,19 +46,20 @@ const Carousel = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isPaused) {
-        nextSlide();
-      }
-    }, autoplayIntervalTime);
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (!isPaused) {
+      nextSlide();
+    }
+  }, autoplayIntervalTime);
 
-    return () => clearInterval(interval);
-  }, [isPaused, currentSlideIndex]);
+  return () => clearInterval(interval);
+}, [isPaused, nextSlide]);
 
-  const nextSlide = () => {
-    setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
+
+const nextSlide = useCallback(() => {
+  setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+}, [slides.length]);
 
 
 
