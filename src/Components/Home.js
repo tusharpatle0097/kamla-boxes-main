@@ -11,16 +11,12 @@ import Partitioned from '../Assets/boxPart.png';
 
 import amul from '../Assets/clients/amul.png';
 import apml from '../Assets/clients/apml.png';
-import aventis from '../Assets/clients/aventis.png';
 import balmer from '../Assets/clients/balmer-lawrie-logo.png';
-import bp from '../Assets/clients/bp.png';
 import BRITANNIA from '../Assets/clients/BRITANNIA.NS.png';
 import dinshaws from '../Assets/clients/dinshaws.png';
 import gopal from '../Assets/clients/gopal.png';
 import havmor from '../Assets/clients/havmor.jpeg';
 import heritage from '../Assets/clients/heritage.png';
-import hp from '../Assets/clients/hp.png';
-import ioc from '../Assets/clients/IOC.NS.png';
 import mescab from '../Assets/clients/mescab.png';
 import motherdairy from '../Assets/clients/motherdairy.png';
 import nubeno from '../Assets/clients/nubeno.png';
@@ -119,7 +115,7 @@ const Home = () => {
     }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [products.length]);
+  }, []);
 
   const visibleProducts = products.slice(index, index + 4).concat(
     index + 4 > products.length
