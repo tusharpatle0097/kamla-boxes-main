@@ -10,7 +10,7 @@ const AboutUs = () => {
   const teamMembers = [
 
     {
-      role: "Group CEO & CFO ",
+      role: "Group CEO & CFO. ",
       name: "Mr. Samrat Galundia",
       description: `A Chartered Accountant by profession, joins the group with an enriched experience of 11 years in various industries including well-known companies like J.P. Morgan, Mahindra & Mahindra, Shrenuj & Co. Ltd, St. Jude Medical (Hong Kong) Ltd, Lodha & Co. His key skills include Planning & Analysis, Budgeting, MIS, Performance Tracking, Controllership, Tax matters, and Financial Modelling. He is primarily in charge of the group’s financial affairs.`,
     },

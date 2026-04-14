@@ -8,7 +8,6 @@ import S7 from '.././Assets/CompanyImages/S7.jpeg'
 import S8 from '.././Assets/CompanyImages/S8.jpeg'
 import S9 from '.././Assets/CompanyImages/S9.jpeg'
 import S10 from '.././Assets/CompanyImages/S10.jpeg'
-import S11 from '.././Assets/CompanyImages/S11.jpeg'
 
 
 
@@ -61,9 +60,7 @@ const Carousel = () => {
     setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
   };
 
-  const previousSlide = () => {
-    setCurrentSlideIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
-  };
+
 
   const togglePause = () => {
     setIsPaused((prev) => !prev);

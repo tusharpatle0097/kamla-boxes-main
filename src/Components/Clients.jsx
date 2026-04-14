@@ -27,7 +27,6 @@ import VADILALIND from '../Assets/clients/VADILALIND.NS.png';
 const clients = [
   { id: 1, logo: amul },
   { id: 2, logo: apml },
-  // { id: 3, logo: aventis },
   { id: 4, logo: balmer },
   // { id: 5, logo: bp },
   { id: 6, logo: BRITANNIA },
