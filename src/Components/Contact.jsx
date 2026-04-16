@@ -51,7 +51,7 @@ const ContactUs = () => {
           <button onClick={Hello} className="text-center border border-gray-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
             <FiMapPin className="w-10 h-10 mx-auto text-teal-600 mb-4" />
             <h3 className="text-2xl font-semibold text-gray-700">Visit Us</h3>
-            <p className="text-gray-600 text-lg mt-2">See our locations below</p>
+            <p className="text-gray-600 text-lg mt-2">See our locations below.</p>
           </button>
         </div>
 
